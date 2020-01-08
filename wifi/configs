@@ -1,0 +1,14 @@
+#Turn OFF/ON interface
+	ifconfig eth0 up/down
+
+#Config IP address, default subnet mask
+	ifconfig eth0 192.168.1.2
+
+#Config a non-default sub-net mask
+	ifconfig eth0 10.1.1.2 netmask 255.255.255.0
+
+#adding default gateway to the eth0 interface
+	route add default gw 192.168.1.1 eth0
+
+#asigning IP address DHCP server will give it
+	dhclient eth0	

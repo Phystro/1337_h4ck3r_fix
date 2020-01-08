@@ -1,0 +1,20 @@
+echo "Path/Name of mp3 file: "
+read iname
+echo
+echo "Path/Name of Cover Art: "
+read pic
+echo
+echo "Name of output mp3 file: "
+read oname
+echo
+
+#echo $iname and  $pic and $oname
+
+echo Inserting Cover Art Album $pic on $iname to output $oname
+echo ....................................................................
+echo
+
+##If id3v2_version 4 doesnt work use id3v2_version 3
+##Advised to use -codec instead of -c to prevent jpeg photos to be changed to png
+
+ffmpeg -i $iname -i $pic -map 0:0 -map 1:0 -codec copy -id3v2_version 4 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" $oname

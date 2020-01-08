@@ -1,0 +1,2 @@
+pip3 install -U wxPython
+apt install libwebkit2gtk-4.0-dev

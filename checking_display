@@ -1,0 +1,2 @@
+#Gives diaply ID and info on displays
+	xrandr --query

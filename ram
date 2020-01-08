@@ -1,0 +1,4 @@
+vmstat -s
+dmidecode -t 17
+/proc/meminfo
+

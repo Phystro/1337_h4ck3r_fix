@@ -1,0 +1,27 @@
+#Installation
+	apt install lightdm
+
+#config
+	dpkg-reconfigure lightdm
+
+#view current config
+	/usr/sbin/lightdm --show-config
+
+#Testing
+	lightdm --test-mode --debug
+
+#Enable Autologin
+	#look up the lines in config file and uncomment
+	autologin-user=
+	autologin-user-timeout=0
+
+#Enable User List
+	#provides user with selection of available user accounts
+	greeter-hide-users=false
+
+#Change Greeter's Background
+	update-alternatives --config desktop-background
+
+	#or edit the greeter config file
+	[greeter]
+	background=/path/to/file.svg

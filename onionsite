@@ -1,0 +1,23 @@
+#Start Server
+	service apache2 start
+
+#Checking if server is online
+	ps -ef | grep apache2
+
+#Editing the torrc file
+	cd /etc/tor
+	nano torrc
+
+#Search and Locate the phrase: "location-hidden"
+#Uncomment the lines
+	HiddenServiceDir /var/lib/tor/hidden_service
+	HiddenServicePort 80 127.0.0.1:80
+	HiddenServicePort 22 127.0.0.1:22
+
+#Run Tor to activate and genearate keys for the sites addedd in /etc/tor/torr file
+	tor
+
+#Checking if tor is running
+	ps -ef | grep tor
+
+#Hostname = contains url of onion site

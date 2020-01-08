@@ -1,0 +1,52 @@
+#Take general desktop screenshot
+	gnome-screenshot
+
+#Limit Screenshot to particular active window
+	gnome-screenshot -w
+
+#LImit screenshot to active window including border/Same as above
+	gnome-scrrenshot -wb
+
+#Limit screenshot to active window except border
+	gnome-screenshot -wB
+
+#BORDER-EFFECTS
+	gnome-screenshot --border-effect=[effect]
+	[effects] = "vintage", "border", "shadow"
+
+#Screenshot of particular areas
+	gnome-screenshot -a
+
+#Including mouse pointer in a snapshot
+	gnome-screenshot -p
+
+#Introducing Delays in taking Screenshots
+	gnome-screenshot --delay=[seconds]
+
+#Running in interactive mode
+	gnome-screenshot -i
+
+#Directly saving my Screenshot
+	gnome-screenshot --file=[filename]
+
+#Copy to clipboard
+	gnome-screenshot -c
+
+#Screenshot in case of multiple displays in use
+	gnome-screenshot --display=[deisplay device ID]
+	e.g. gnome-screenshot --display=VGA-0
+
+#Automating the screen grabbing process
+	(gnome-screenshot -a &); sleep 0.1 && xdotool mousemove 100 100 mousedown 1 mousedown 400 400 mouseup 1
+
+###
+#You will have to use an external tool known as xdotool, which is capable of simulating
+#key presses and even mouse events.
+#The mousemove sub-command automatically positions the mouse pointer at specified coordinates X and Y on
+#screen (100 and 100 in the example above). The mousedown subcommand fires an event which performs the same 
+#operation as a click (since we wanted left-click, so we used the argument 1) , whereas the mouseup subcommand 
+#fires an event which performs the task of a user releasing the mouse-button.
+#So all in all, the xdotool command shown above does the same area-grabbing work that you otherwise have to 
+#manually do with mouse - specifically, it positions the mouse pointer to 100, 100 coordinates on the screen, 
+#selects the area enclosed until the pointer reaches 400,400 coordinates on then screen. The selected area 
+#is then captured by gnome-screenshot.

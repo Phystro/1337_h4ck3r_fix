@@ -1,0 +1,3 @@
+filefrag /path/to/file
+
+#e.g. filefrag /root/Desktop/todoload

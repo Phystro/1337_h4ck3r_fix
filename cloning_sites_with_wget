@@ -1,0 +1,2 @@
+-WGET =>
+	wget -m -p -E -k -K -np -v [site]

@@ -1,0 +1,35 @@
+#Sure TO Avoid IDS and Firewalls
+
+TCP SYN Ping	=	nmap -PS
+TCP ACK Ping	=	nmap -PA
+
+Fragment pkts	=	nmap -f
+Specify MTU	=	nmap --mtu [value]
+
+Append Random Data	=	nmap --data-length [size]
+Send Bad Checksums	=	nmap --badsum [target]
+Manually Specify SrcPort=	nmap --source-port [port] [target]
+
+
+#Decoy
+Decoy	=	nmap -D ip,ip,ip,ip,ip [Target IP]
+
+#Version Detection
+OS scan Guess	=	nmap -O --osscan-guess [target]
+
+Debugging Version scans	=	nmap -sV --version-trace [target]
+Try all version scans	=	nmap -sV --version-all
+
+
+#Update Script Database
+nmap --script-updatedb
+
+###Alfred Pennyworth
+#Doing a scan on a specific port is more successful than a port sweep
+#Success guaranteed with a less than 10 ports range scan e.g. -p 71-81
+#Don't do Xmass, Null or Fin scan on Windows/NT comps best for Unix-OS
+
+
+#Successful Ones
+nmap -sV --version-all --source-port 8080 -D 192.168.1.116,192.168.1.1 -f --mtu 8 -p 15-25,26-34 192.168.1.116
+nmap -sX -sV --version-all --source-port 8080 -D 192.168.1.116,192.168.1.1 -f --mtu 8 -p 15-25,26-34,77-82 192.168.1.116

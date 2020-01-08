@@ -1,0 +1,15 @@
+##Generate PMKs USING GenPMK
+	genpmk -f "wordlist" -d "output_filename" -s [SSID]
+
+##Generate PMKs Using Pyrit
+	pyrit -o "output_filename" -i "wordlist" -e SSID passthrough
+
+###CRACKING WPA2-PSK
+##Cracking Using Cowpatty
+	cowpatty -d [hash_file_with_computed_PMKs] -r [Pcap_file] -s SSID
+
+
+###Cracking Using  A Pipe
+	pyrit -i length08.txt -e rootsh3ll -o - passthrough | cowpatty -d - -r rootsh3ll-01.cap -s rootsh3ll
+	# using "-" operator works as a STDIN to direct some output to/from a file i.e. writing to Hash File
+	# with pyrit and taking input from Hash File with CowPatty.

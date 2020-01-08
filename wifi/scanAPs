@@ -1,0 +1,5 @@
+iwlist wlan0 scan | grep -i "essid\| channel: "
+
+iwlist wlan0 scan | grep -i --color "essid\| channel:\|quality\|address:\|frequency:"
+
+iwlist wlan0 scan | grep -i --color "essid\|quality\|address\|frequency\|encryption\|ieee\|cipher\|auth"

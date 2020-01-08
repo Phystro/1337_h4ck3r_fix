@@ -1,0 +1,19 @@
+##Kill Processes
+
+-kill -15 [pid]		> sends SIGTERM
+-kill     [pid]		> sends SIGTERM
+-kill -2  [pid]		> sends SIGINT
+-kill -1  [pid]		> sends SIGHUP
+-kill -9  [pid] 	> sends SIGKILL
+
+-kill -TERM [PID]
+-killall -TERM [NAME]
+
+#reset/rstart processes
+-kill -HUP [PID]
+-killall -HUP [NAME]
+
+#listing open files
+-lsof
+-lsof -p [PID]
+-lsof -i

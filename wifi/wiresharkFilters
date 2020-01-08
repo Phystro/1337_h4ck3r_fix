@@ -1,0 +1,35 @@
+###DISPLAY-FILTERS
+#Show only beacon frames
+	wlan.fc.type_subtype == 0x08
+
+#Show everything except beacon frames
+	!wlan.fc.type_subtype == 0x08
+
+#Show only beacon frames and acknowledge frames
+	(wlan.fc.type_subtype == 0x08) || (wlan.fc.type_subtype == 0x1d)
+
+#Show everythin except the beacon and ack frames
+	(!wlan.fc.type_subtype == 0x08) && (!wlan.fc.type_subtype == 0x1d)
+
+#Filter packets with a specific SSID
+	wlan_mgt.ssid == "dlink"
+
+#Filter packets with a specific MAC Address
+
+	wlan.addr == FF:FF:FF:FF:FF:FF
+
+#
+
+
+###CAPTURE-FILTERS
+#Capture only beacon frames
+	wlan[0] == 0x80
+
+#Capture everything except beacon frames
+	wlan[0] != 0x80
+
+#Capture only beacon frames and ack frames
+	wlan[0] == 0xd4
+
+#Capture everything exvcept beacon frames and ack frames
+	wlan[0] != 0x80 and wlan[0] != 0xd4

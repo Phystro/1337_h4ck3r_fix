@@ -1,0 +1,20 @@
+upower -i `upower -e | grep 'BAT'`
+
+upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
+
+acpi -V
+
+#Check Battery TEmperature
+	acpi -t
+	acpi -t -f [in Farenheit]
+
+
+#Check WHether AC power is connected or not
+	acpi -a
+
+######USING CAT
+	cat /sys/class/power_supply/BAT1/capacity
+
+
+#All details about battery
+	find /sys/class/power_supply/BAT0/ -type f | xargs -tn1 cat

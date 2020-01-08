@@ -1,0 +1,5 @@
+efibootmgr -v
+
+
+#Deleting Some Boot Entry
+	 efibootmgr -b XXX -B

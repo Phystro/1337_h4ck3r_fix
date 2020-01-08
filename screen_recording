@@ -1,0 +1,1 @@
+recordmydesktop --no-wm-check --no-frame --fps=24 --follow-mouse --device=default

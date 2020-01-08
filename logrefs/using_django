@@ -1,0 +1,11 @@
+Using Django
+
+#Creating a project directory
+	django-admin.py startproject <project-name>
+	django-admin startproject <project-name>
+	
+#Apply migrations
+	python manage.py migrate
+
+#Starting the built-in, lightweight development server
+	python manage.py runserver

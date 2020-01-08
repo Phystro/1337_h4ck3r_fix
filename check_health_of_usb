@@ -1,0 +1,22 @@
+#Testing and Detecting Bad sector in USB
+	badblocks -w -s -o error.log /dev/sdX
+	-w = write mode test to scans for bad blocks by writing patternson every block of the device,
+		reading every block and comparing contents
+	-s = show progress of the scan
+	-o = output list of bad blocks
+
+#To error check USB flash drive you can use the f3write and f3read commands
+#f3 = {Fight Flash Fraud/Fight Fake Flash}
+#f3 test flash cards capacity and performance to see if they live up to claimed specifications
+#Write Read F3 test
+	f3write /mnt/
+	f3read /mnt/
+
+#Quick Capacity check with F3probe
+#quick test, operates on umounted block device. --destructive options\ deletes all data
+	f3probe --destructive --time-ops /dev/sdX
+
+#Correcting Capacity to actual size of USB stick
+#F3fix, creates partition that fits actual size of fake drive. Only use to correct size of fake drive,
+#using f3probe's output to determine parameters for f3fix
+	f3fix --last-sec=XXXXXXXX /dev/sdX

@@ -1,0 +1,59 @@
+#BIT-BY-BIT copying
+	dd if=/dev/sdv of=/root/mnt/flash
+
+	dd if=/dev/media of=/root/flash bs=4096 conv:noerror
+	
+	#where: bs = block size, number of bytes read/written per block
+	#	noerror = continues copying even when errors are present
+
+#View Content of tarballs
+	tar -tvf <file.tar>
+
+#Untarballing
+	tar -xvf <file.tar>
+
+#Compressing and Tarballing files
+	tar -zvcf <files.tgz> <files>
+
+#Uncompressing and Untarballing .tgz files
+	tar -xzvf <files.tgz>
+
+#Uncompressing and Untarballing .gz files
+	tar -xvf <files.gz>
+
+
+#Compress and Tarball many files into one archive
+	tar -cvf Hackers.tar hacker1 hacker2 hacker3
+
+
+
+#######################################################################
+#Compressions
+gzip	 = [.tar.gz or .tgz]	= medium
+bzip2	 = [.tar.bz2]		= slowest, highest compression ratio
+compress = [.tar.z]		=fastest, lowest compression ratio
+#######################################################################
+
+
+#GZIP (GNU zip)
+	#compress
+		gzip <file>
+	#decompress
+		gunzip <file.gz>
+
+#BZIP2
+	#Compress
+		bzip2 <file>
+	#decompress
+		bunzip2 <file.bz2>
+
+#COMPRESS
+	#Compress
+		compress <file>
+	#decompress
+		uncompress <file.Z>
+
+
+#TRICKS
+#More compression
+	compress with tar -cvf then compress formed archive with gzip

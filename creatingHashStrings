@@ -1,0 +1,8 @@
+echo -n "yourstringhere" | md5sum
+
+##BASH SHELL
+	md5="set-string-here"
+	hash="$(echo -n "$md5" | md5sum)"
+	echo "$hash"
+
+

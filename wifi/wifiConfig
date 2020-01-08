@@ -1,0 +1,19 @@
+##Loving the ALFA NETWORK cards
+
+#Increasing Transmission Power
+	-iwconfig wlan0 txpower 30
+
+#Reading Power values
+	-airdriver-ng unload 36
+	-airdriver-ng load 35
+
+#Testing if wireless adapter is  capable of packet injection
+	-aireplay-ng -9 wlan0mon
+
+#Changing MAC Address
+	-ifconfig wlan0 down
+	-ifconfig wlan0 | grep ether
+	-ifconfig wlan0 hw ether 38:33:15:xx:xx:xx
+	-ifconfig wlan0 up
+
+

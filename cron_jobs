@@ -1,0 +1,29 @@
+REFERENCE: www.crontab.guru
+
+* = any value
+, - value list seperatot
+- = range of values
+/ = step values
+@yearly
+@annually
+@monthly
+@weekly
+@daily
+@hourly
+@reboot
+
+##Every minute
+	* * * * * [user] [command]
+
+##Run every day at 8am, 10am, 12pm, 2pm
+	0 8,10,12,14 * * * [command]
+
+##every half hour
+	*/30 * * * * [command]
+
+##every tuesday at 8am
+	0 8 * * 2 [command]
+
+##First wednesday of each month at 11pm
+	0 23 1-7 * 3 [command]
+

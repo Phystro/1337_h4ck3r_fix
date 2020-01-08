@@ -1,0 +1,13 @@
+#Editing the file /etc/sysctl.conf
+
+#sysctl -w = write a value to a variable
+#sysctl -p = read values values from file
+#sysctl -a = display all variables
+
+#NOTES
+#Using sysctl -w only makes temporary changes which are revokes during reboot, make permanent changes 
+#by including commands into the sysctl.conf file and loading such commands by the sysctl -p command
+
+>Disabling ICMP echo requests
+	#makes it difficult but not impossible for hackers to find your system
+	net.ipv4.icmp_echo_ignore_all=1

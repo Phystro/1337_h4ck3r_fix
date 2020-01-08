@@ -1,0 +1,8 @@
+###USING AIRODUMP-NG
+	airodump-ng wlan0mon
+
+##Capturing data-packets into a file
+	airodumop-ng wlan0mon -w data_packetsFile
+
+##Capture packets exclusively saving it into a file
+	airodump-ng --bssid 64:65:66:B3:B0:8A -c 1 -w packetFile wlan0mon

