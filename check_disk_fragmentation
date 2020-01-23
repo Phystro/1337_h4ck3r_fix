@@ -1,5 +1,0 @@
-fsck /dev/sdXY
-
-
-#on specific mount
-fsck.ext4 -fn /dev/sdXY

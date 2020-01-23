@@ -1,0 +1,20 @@
+#Utilities
+	fsck {file system consistency check}
+	filefrag
+	defragfs
+
+#fsck
+	#Unmount volume first
+	#exmaine consistency of a file-system
+	fsck /dev/sdXY
+	#checking on specific mounts and file formats
+	fsck.ext4 -fn /dev/sdXY
+
+#filefrag
+	#checks for number of extents on the file/how fragmented
+	filefrag <filename/filepath>
+
+#defragfs
+	#checks and defrags disk without unmounting
+	> defragfs / ; checks all drives, listing files with multiple extents
+	> defragfs / -af ; check fragmented files and automatically fix the fragmented files
