@@ -1,0 +1,26 @@
+##Known Ports 0-1023
+##Registered Ports 1024-49151
+##Dynamic and Private Ports 49152-65535
+
+#Registered Ports stored in /etc/services
+#
+#1.
+	# ss
+	# lsof
+	# nmap
+
+# Commands
+
+netstat -tulpn | grep LISTEN
+	# t = all tcp ports
+	# u = all udp ports
+	# l = display listening server sockets
+	# p = show pid and name of program to which socket belongs
+	# n = don't resolve names
+
+ss -tulpn
+
+lsof -i -P -n | grep LISTEN
+	# i = look for listening ports
+	# P = inhibits conversion of port numbers to port names
+	# n = don't use DNS name
