@@ -1,0 +1,7 @@
+#Stream Editor
+
+#Making Changes to files
+	cat file | tee file-backup | sed 's/old/new/' | cat > new_file
+
+#Making changes on crontab
+	crontab -l | tee crontab-backup.txt | sed 's/old/new/' | crontab -
