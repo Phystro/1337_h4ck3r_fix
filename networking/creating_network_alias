@@ -1,0 +1,19 @@
+#Using ifconfig
+#Temporary configuration (lost on reboot)
+	ifconfig eth0:0 192.168.1.156 up
+	ifocnfig wlan0:0 192.168.1.250 up
+
+#Permanent configuration
+#Configuration on file /etc/network/interfaces
+	auto eth0:1
+	iface eth0:1 inet static
+	name Ethernet alias LAN card
+	address 192.168.1.70
+	netmask 255.255.255.0
+	broadcast 192.168.1.255
+	network 192.168.1.0
+
+Restart the network
+	/etc/init.d/networking restart
+	systemctl restart networking
+	service networking restart

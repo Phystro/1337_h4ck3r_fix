@@ -1,0 +1,6 @@
+ip = show/manipulate routing, devices, tunnels, policy routing.
+
+netstat = display network connections, routing tables, interface statistics, 
+		masquerade connections, multicast memberships.
+
+ifconfig = display. configure network interface.

@@ -52,7 +52,8 @@ compress = [.tar.z]		=fastest, lowest compression ratio
 		compress <file>
 	#decompress
 		uncompress <file.Z>
-
+#7z
+	#Compress
 
 #TRICKS
 #More compression

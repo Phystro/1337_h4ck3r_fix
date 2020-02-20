@@ -1,0 +1,12 @@
+ip link show
+ip route show
+
+nmcli connection show
+nmcli device status
+
+netstat -i
+
+arp
+arp -a
+arp -e
+arp -n
