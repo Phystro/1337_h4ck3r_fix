@@ -1,0 +1,6 @@
+#Unix way
+tail -f /var/log/httpd/log_file
+
+#Systemd way, Linux
+journalctl -f -l -u httpd
+journalctl -f -l -u mysqld

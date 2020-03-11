@@ -1,0 +1,35 @@
+#Use 'lsblk' or 'fdisk -l' to check for what drives you wish to mount.
+#Create a directory to mount to e.g. mkdir /mnt/Deepin
+#Or use an existing directory e.g. /mnt/ or /media/root/ or /media/user/
+
+################################################################################
+#######FOR LINUX
+#
+#MOUNTING
+mount /dev/sdXY /mnt		#{mounts partition /dev/sdXY in directory /mnt}#e.g. /dev/sda1 or /dev/sdb2 ...e.t.c.
+mount --bind /dev /mnt/dev	
+mount --bind /proc /mnt/proc
+mount --bind /sys /mnt/sys
+########in case you also want access to processes and their PIDs to run some apps from the mounted drive, use":
+	mount -t proc proc /mnt/proc
+
+#OPEN ACCESS INTO THE DRIVE AS A USER
+chroot /mnt			#{gaining user access into mounted drive}
+
+#EXIT FROM USER ACCESS
+exit				#{exit user access from mounted drive} P.S. you can chroot into any other terminal you want
+
+#UNMOUNTING
+umount /mnt/dev
+umount /mnt/proc
+umount /mnt/sys
+umount /mnt
+
+
+
+################################################################################
+##FOR WINDOWS
+mount /dev/sdXY /mnt
+
+#then unmount
+umount /mnt

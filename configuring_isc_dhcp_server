@@ -1,0 +1,17 @@
+#After installing
+apt install isc-dhcp-server
+
+#/etc/network/interfaces
+auto eth0
+iface eth0 inet dhcp
+
+#/etc/default/isc-dhcp-server
+INTERFACES="eth0"
+
+#Backup /etc/dhcp/dhcpd.conf
+cp dhcpd.conf dhcpd.conf.backup
+
+#/etc/dhcp/dhcpd.conf
+Uncomment;	subnet 10.254.239.0.......
+Add subnet addresses for eth0
+		option routers 192.168..78.1

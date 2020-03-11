@@ -1,0 +1,5 @@
+#e.g. list processes accessing /home/
+	fuser -v -a /home/
+
+	fuser -v -a /httpd/
+	fuser -v -a /home/root/
