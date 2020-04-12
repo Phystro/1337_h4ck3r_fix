@@ -20,7 +20,11 @@
 
 #Uncompressing and Untarballing .gz files
 	tar -xvf <files.gz>
-
+#Uncompressing and Untarballing .tar.xz files
+	tar -xJf <file.tar.xz>
+#Uncompress and Untarball .tar.bz2 files
+	tar -xjf <file.tar.bz2>
+	tar -xf <file.tar.bz2>
 
 #Compress and Tarball many files into one archive
 	tar -cvf Hackers.tar hacker1 hacker2 hacker3
@@ -54,6 +58,30 @@ compress = [.tar.z]		=fastest, lowest compression ratio
 		uncompress <file.Z>
 #7z
 	#Compress
+	#Decompress
+		7z e <file>
+		7z x <file>	#-y=yes on all, -o=output dir
+
+#UNRAR
+	#Unrar
+		unrar e <file>
+		unrar e <file> <dir>	# extract in a specific path/directory
+		unrar x <myfile>	# extract with original directory structure
+		unrar l <myfile>	# list files in the archive
+		unrar t <myfile>	# test integrity of archive file
+
+#RAR
+	#rar
+		rar a <file>	<dir>	# create archive file for directory dir
+		rar d <file>		# delete file from archive
+		rar r <file>		# recover/fix archive
+		rar u <file> <addFile>	# update/add files to existing archive
+		rar a -p <file>		# set password to archive file
+		rar k <file>		# lock an archive file from exrtacting it
+	
+#ZIP
+	#unzip
+		unzip <file>
 
 #TRICKS
 #More compression
