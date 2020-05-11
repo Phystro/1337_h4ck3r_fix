@@ -1,0 +1,13 @@
+RAM == Physical Memory
+Virtual Memory = Swap Space + RAM.
+	- Contains both user and kernel space.
+
+System bit does determine how much memory a process can utilize.
+	-32-bit system, a process can access a max of 4GB virtual mem, on 64-bit, no limitation.
+
+Unused RAM used as file system cache by kernel.
+
+Swapping, done when Linux needs more memory than RAM can provide. On swapping, it writes the least used
+	memory pages from the physical memory to the swap space on the disk.
+
+Lots of swapping can cause performance issues.

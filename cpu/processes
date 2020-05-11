@@ -1,0 +1,74 @@
+# Types Of Processes
+
+Foreground processes; interactive processes. Initialized and controlled through terminal session.
+Background processes; non-interactive. Not connected to terminal, don't expect any user input.
+
+Daemons; special background processes that start at system startup and keep running forever as a service,
+	they don't die. They are started as system tasks (run as services), spontaneously. Can be controlled
+	by user via init process.
+
+# Creation of a process in Linux
+A new process is normally created when an existing process makes an exact copy of itself in memory. The child
+	process will have same environment as its parent but only process ID is different.
+
+# Ways to Create New Processes
+System() Function - relatively simple but inefficient with certain security risks.
+fork() and exec() function - little advanced with greater flexibility, speed and security.
+
+# The Init Process
+Init process is mother/parent of all processes on system. First to be executed when Linux system boots up,
+	managing all other processes on system. Started by kernel itself, therefore in principle has no parent process.
+It functions as an adoptive parent for all orphaned processes.
+
+# Use pidof command to find ID of process:
+	# pidof systemd
+	# pidof top
+	# pidof httpd
+# Find Process ID and PPID of current shell,run:
+	# echo $$
+	# echo $PPID
+
+# Ctrl + Z; sends SIGSTOP signal to the process, thus stopping its operations; it becomes idle.
+
+# bg = run suspended program in background
+# fg = send background process to foreground; use fg together with job ID
+	# jobs
+	# fg %1
+
+# States of A Process in Linux
+Running - either running (current process in system) or is ready to run (waiting to be assigned to one of the CPU's).
+Waiting - process waiting for an event to occur or for a system resource. Kernel differentiates between 2 types of
+		waiting process; interruptible waiting processes - can be interrupted by signals
+			       ; uninterruptible waiting processes - are waiting directly on hardware conditions and
+					can't be interrupted by any event/signal.
+Stopped - process has been stopped, usu by receiving a signal, e.g. process that's being debugged.
+Zombie - process is dead, has been halted but still has an entry in process table.
+
+# ps Command
+Displays info about a selection of the active processes on the system.
+	e.g. ps -e | head 
+Check top processes stats sorted by order of decreasing RAM
+	ps -eo user,pid,ppid,cmd,%mem,%cpu --sort=-%mem  | head
+Check top processes stats sorted by order of decreasing CPU usage
+	ps -eo user,pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head
+
+
+
+# Controlling Processes in Linux
+Using kill, pkill, pgrep and killall
+$ pgrep -u tecmint top
+$ kill 2308
+$ pgrep -u tecmint top
+$ pgrep -u tecmint glances
+$ pkill glances
+$ pgrep -u tecmint glances
+
+# Kill examples using PID
+$ pidof firefox
+$ kill 9 2687
+# Kill examples using application names
+$ pkill firefox
+$ killall firefox
+
+# Sending Signals To Processes
+kill -l = viewing all signals.

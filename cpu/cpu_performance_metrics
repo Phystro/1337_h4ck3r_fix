@@ -1,0 +1,26 @@
+# 4 Critical Performance Metrics for CPU
+	Context Switch
+	Run Queue
+	CPU Utilization
+	Load Average
+
+# Context Switch
+When CPU switches from one process/thread to another, it's called a context switch.
+On Context Switch, kernel stores current stat of CPU of process/thread in memory; kernel retrieves
+	previously stored state of process/thread from memory and puts it in CPU.
+Context Switching is essential for multitasking for CPU. Higher level of Context Switching can cause
+	performance issues.
+
+# Run Queue
+Indicates total number of active processes in current queue for CPU. When ready to execute a process CPU
+	picks from run queue based on priority of process.
+Processes in sleep state/I/O wait state aren't in run queue. Higher number of processes in run queue can
+	cause performance issues.
+
+# CPU Utilization
+How much of CPU is getting used. Highrt %age of CPU Utilization will cause performance issues.
+
+# Load Average
+Average CPU load over specific time period. Calculated by combining both total number of process in queue,
+	total number of processes in uninterruptable task status.
+

@@ -1,0 +1,21 @@
+###du
+	-a = displays all files/folders.
+	-h = human readable format.
+
+#sort
+	-n = compare according to string numerical value.
+	-r = reverse result of comparisons.
+
+#Finding largest directories.
+	du -a /home | sort -n -r | head -n 5	#display largest directories /home directory
+	du -a . | sort -n -r | head -n 5	#display largest directories in current working directory
+	du -sh * | sort -rh | head -5		#display in humann readable format
+	du -Sh | sort -rh | head -5		#display largest files/folders including sub-directories
+
+
+###find
+
+#display largest file sizes
+	find -type f -exec du -Sh {} + | sort -rh | head -5
+	find /root/Desktop/ -type f -exec du -Sh {} + | sort -rh | head -5 	#specify desktop directory
+	find /root/Desktop/ -type -f -printf "%s %p\n" | sort -rn | head -5	#specify desktop directory

@@ -1,0 +1,10 @@
+cpu_hyper	- 1024	= 100%
+cpu_ultra	- 896	= 87.5%
+cpu_super	- 768 	= 75.0%
+cpu_high	- 640	= 62.5%
+cpu_interm	- 512	= 50.0%
+cpu_low		- 384	= 37.5%
+cpu_min		- 256	= 25.0%
+cpu_least	- 128	= 12.5%
+cpu_survival	- 64	= 6.25%
+cpu_starve	- 8	= 0.78%

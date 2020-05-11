@@ -1,0 +1,50 @@
+# TLP - Advanced Power Management and optimize battery life.
+
+# Uses automated background tasks but you will not see any TLP background process or daemon
+#	in ps command output.
+
+# Installation:
+	apt install tlp tlp-rdw
+Ubuntu/Linux Mint
+#$ sudo add-apt-repository ppa:linrunner/tlp
+#$ sudo apt-get update
+#$ sudo apt-get install tlp tlp-rdw 
+Debian
+# echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+# apt-get update 
+# apt-get install tlp tlp-rdw
+
+# dnf install tlp tlp-rdw     [On Fedora]
+# pacman -S tlp  tlp-rdw      [On Arch Linux]
+# zypper install tlp tlp-rdw  [On OpenSUSE]
+
+# USAGE
+tlp – apply laptop power saving settings
+tlp-stat – displays all power saving settings
+tlp-pcilist – displays PCI(e) device data
+tlp-usblist – for viewing USB devices data
+
+# Start Service
+systemctl enable/start tlp
+tlp start
+
+# Show system info and TLP status
+	tlp-stat -s
+
+# View current TLP configuration
+	tlp-stat -c
+
+# Display all power settings
+	tlp-stat
+
+# Display Linux battery information
+	tlp-stat -b
+
+# Display Temp and Fun speed of system
+	tlp-stat -t
+
+# Display Processor Data
+	tlp-stat -p
+
+# Display any warnings
+	tlp-stat -w

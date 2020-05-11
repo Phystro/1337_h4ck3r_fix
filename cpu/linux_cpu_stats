@@ -1,0 +1,45 @@
+# States of CPU:
+	Idle - nothing to do.
+	Running User space program - e.g. command shel, compiler.
+	Running Kernel - servicing interrupts or managing resources.
+
+us = user space; percentage time CPU is running un-niced user space processes.
+id = idle; percentage time CPU was idle.
+sy = system; percentage time CPU spent running the kernel. All processes and system resources
+	are handled by kernel. Scheduler is part of kernel. Amount of time spent in kernel should be as low
+	as possible: Number can peak esp when there's a lot of I/O happening.
+ni = nice; percentage time CPU spent running user space processes that have been niced.
+wa = I/O wait:operations; percentage time CPU is idle while waiting for an I/O operation to complete.
+hi & si = interrupts; percentage time spent servicing ineterrupts.
+		hi = hardware interrupts. from peripherals e.g. disks, network interfaces.
+		si = software interrupts. from processes running on system. occurs at kernel level.
+st = stolen; applies to virtual machines. time stolen from this vm by the hypervisor. When linux runs as a vm
+	on a hypervisor, st shows how long vierual CPU has spent waiting for hypervisor to service another
+	virtual CPU running on a different vm.
+IRQ & SoftIRQ = Kernel is servicing Interrupt Requests(IRQs).
+Guest & Guest Nice = process (a hypervisor) is running a virtual CPU; These numbers are already included in
+			User and Nice.
+
+
+# Troubleshooting
+
+A CPU rarely having any idle time is a) overloaded; b) sths wrong.
+
+High User Mode - system jumps from having spare CPU cycles to running flat out, check time spent
+			on user space processes. If high, process is eating up CPU time.
+High Kernel Usage - A program with lots of console I/O can cause kernel usage to spike, if high for too long,
+			sth isn't right, possibly problem with driver/kernel module.
+High Niced Value - High ni value, some intensive CPU job is running and the task has been niced. If niceness
+			is lower than zero, it avoids a CPU overload. If niceness is lower than zero, such a
+			task can easily cripple system responsiveness.
+High Waiting on I/O - intensive I/O tasks running that don't use much CPU time. If high for anything other
+			than short bursts, I/O performed by task is very inefficient/data being transferred 
+			to a very slow device/potential problem with a HDD that's taking long to process
+			reads & writes.
+		    - Consistent high I/O wait on system indicates problem in disk subsystem.
+		    - Monitor reads/sec and writes/sec, usu measured in blocks i.e number of blocks
+				read/write per sec; Also called bi and bo (block in and block out).
+		    - tps; indicates total transactions per secs, which is sum of rtps i.e read
+				transactions per second and wtps i.e write transactions per second.
+High Interrupting Processing - indication of a broken peripheral causing lots of hardware interrupts/ process					that is issuing lots of software interrupts.
+Large Stolen Time - host system running hypervisor is too busy. If possible check other vms on the hypervisor				 and/or migrate to your vm to another host.

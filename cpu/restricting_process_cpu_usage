@@ -1,0 +1,46 @@
+# Restricting process CPU usage using nice, cpulimit, cgroups
+
+# cpulimit
+curbs CPU usage of a process by pausing process at different intervals to keep it under defined ceiling.
+Sends SIGSTOP and SIGCONT signals to process.
+	e.g.g cpulimit -l % -p 1234
+
+# cgroups
+Control Groups, are a Linux Kernel feature that allows specification of how kernel should allocate specific
+	resources to a group of processes e.g. specifying how much CPU time, system memory, network bandwidth or 
+	combinations of these resources can be used by the processes residing in a certain group.
+Advantage of cgroups; limits are applied to a set of processes rather than just one. Cgroups can limit other process
+	resources not just CPU usage only.
+e.g. CoreOS; minimal Linux distro designed for massive server deploment, upgrade process are controlled by a cgroup,
+	thus downloading and installing system updates doesn't affect system performance.
+
+###Creating cgroups
+#2 groups called cpulimited and lesscpulimited
+
+#cgcreate
+	cgcreate -g cpu:/cpulimited
+	cgcreate -g cpu:/lesscpulimited
+
+	- the cgreate -g cpu:/ parts tells cgroups that groups can place limits on amount of CPU resources given to processes
+		in the group.
+	- other controllers: cpu, cpuset, memory, blkio
+	- cpuset = related to cpu controller, allowing processes in a group to be bound to a specific CPU/set of cores in a CPU.
+	
+	# cpu controller
+		- has property called cpu.shares, used by kernel to determine share of CPU resources available to each processes
+			across the cgroups.
+		- default value is 1024. We leave one groups, lesscpulimited at default of 1024 and have other, cpulimited at 512,
+			kernel splits CPU resources using a 2:1 ratio.
+		- setting cpu.shares:
+			cgset -r cpu.shares=512 cpulimited
+		-starting tasks in a particular group use cgexec command:
+			cgexec -g cpu:/cpulimited <task/program>
+			cgexec -g cpu:/lesscpulimited <task/program>
+
+#SUMMARY
+cgcreate -g cpu:/cpulimited
+cgset -r cpu.shares=512 cpulimited
+cgexec -g cpu:/cpulimited PROCESS
+#When to use:
+	- need to limit resource usage across groups of proceses and/or want to limit more than just CPU usage.
+
