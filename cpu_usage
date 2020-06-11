@@ -1,5 +1,0 @@
-iostat || iostat -c || iostat -xtc 5 2
-
-vmstat
-
-
