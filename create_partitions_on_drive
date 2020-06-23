@@ -1,3 +1,29 @@
-parted /dev/sdx --align opt mklabel msdos 0 4G
+# Specify partitioning standard
+	parted /dev/sda mklabel gpt		# GPT format
+	parted /dev/sda mklabel msdos		# MBR format
 
-parted /dev/sdx -a opt mkpart primary 2048s 4G
+
+# Creating the partition spanning entire drive
+	parted /dev/sdx --align opt mklabel msdos 0 4G			# MBR formated drives
+				
+	parted /dev/sdx --align opt mkpart primary 2048s 4G		# GPT formated drives
+	parted /dev/sdx --align opt mkpart primary ext4 0% 100%
+
+
+# Create filesystem on new partition
+	mkfs.ext4 -L [label] /dev/sdxX
+
+
+# Labelling/Re-labelling
+	tune2fs -L [label] /dev/sdxX
+
+# Getting info on filesystem
+	lsblk --fs
+	lsblk -o NAME,SIZE,FSTYPE,LABEL,UUID,MOUNTPOINT
+	df -h -x tmpfs -x devtmpfs
+	blkid
+
+# Mounting partition drive automatically. Edit /etc/fstab. Use any of the three identifiers for the filesystem.
+	# /dev/sdxX /mnt/data ext4 defaults 0 2
+	# UUID=4b313333-a7b5-48c1-a957-d77d637e4fda /mnt/data ext4 defaults 0 2
+	# LABEL=datapartition /mnt/data ext4 defaults 0 2
