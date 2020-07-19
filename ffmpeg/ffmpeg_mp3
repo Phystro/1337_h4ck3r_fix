@@ -1,0 +1,9 @@
+
+##Adding Cover Arts to mp3 files
+ffmpeg -i in.mp3 -i test.jpeg -map 0:0 -map 1:0 -codec copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" out.mp3
+
+ffmpeg -i in.mp3 -i test.png -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" out.mp3
+
+-map = to associate input stream to output
+-c copy = to directly demux/remux
+-you can also ask for -id3v2_version 4

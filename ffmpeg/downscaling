@@ -1,0 +1,11 @@
+ffmpeg -i DJI_0029.MP4 -vf scale=1920:1080 -c:v libx264 -crf 35 DJI_0029-smaller.mp4
+
+	# -c:v libx264	= use libx264 encoder
+	# crf 20	= constant rate quantiser/ variable bit rate at constant quality. with a value of 20.
+			# lower is better quality/larger files, higher is crappier/smaller files. 18 is functionally lossless.
+
+	# -preset slow = puts a bit more effort into it than default(medium) 
+
+	# c:a copy	= for using audio as-is. Does a straight copy of audio stream without re-encoding
+
+	# -map 0	=	to copy any chapter metadata.
