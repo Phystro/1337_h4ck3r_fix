@@ -51,6 +51,10 @@ Check top processes stats sorted by order of decreasing RAM
 	ps -eo user,pid,ppid,cmd,%mem,%cpu --sort=-%mem  | head
 Check top processes stats sorted by order of decreasing CPU usage
 	ps -eo user,pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head
+Check all processes running. -e = specifies all processes. -f = full description
+	ps -ef
+
+TTY = 'teletype' => controlling terminal of the process.
 
 
 
@@ -65,6 +69,7 @@ $ pgrep -u tecmint glances
 
 # Kill examples using PID
 $ pidof firefox
+$ pgrep firefox
 $ kill 9 2687
 # Kill examples using application names
 $ pkill firefox

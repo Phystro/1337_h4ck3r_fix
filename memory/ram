@@ -1,0 +1,19 @@
+## Checking RAM speed and type
+
+# Using the biosdecode command line utility
+	# dmidecode = tool for dumping computer's DMI(SMBIOS) table contents in a human-readable format.
+ 
+
+$ dmidecode --type 17
+$ dmidecode --type 17 | grep -i "type\|speed\|size\|memory"
+
+$ lshw -short -C memory		=	reduced info
+$ lshw -C memory		=	detailed info
+$ lshw -C [ memory|cpu ] -[ short|businfo|html|xml|json ]
+
+
+(MegaTransfers per SECond) (Mt/s) = A measurement of bus and channel speed in millions of "effective"
+		cycles per second. Also written as "MT/s," it is a rating of the actual, delivered
+		speed rather than the frequency of the clock.
+
+

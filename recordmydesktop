@@ -1,0 +1,1 @@
+recordmydesktop --fps=60 --no-wm-check --no-frame --delay=5 --width=1920 --height=1080 --no-sound
