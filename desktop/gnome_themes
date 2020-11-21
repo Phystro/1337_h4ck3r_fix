@@ -1,0 +1,4 @@
+# Applications Themes
+	gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Blue"
+
+

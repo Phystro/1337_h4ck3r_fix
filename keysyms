@@ -1,0 +1,5 @@
+# Computer key systems
+	xmodmap -pke
+
+# Key bindings/systems
+	xmodmap

@@ -77,3 +77,8 @@ $ killall firefox
 
 # Sending Signals To Processes
 kill -l = viewing all signals.
+
+# Suspending processses
+kill -s STOP $(pidof firefox-esr)
+kill -s CONT $(pgrep firefox-esr)
+

@@ -1,0 +1,8 @@
+# Change the check user file: start-tor-browser
+
+# Configure torbrowser-launcher
+	# Add non-root user to access X server; allows tor to run as non-root user
+		xhost si:localuser:non-root
+
+	# run torbrowser-launcher as another user
+		sudo -u non-root -H torbrowser-launcher

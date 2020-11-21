@@ -1,0 +1,15 @@
+# Analysis of system boot time
+	systemd-analyze
+
+# Troubleshoot slow boot up
+	systemd-analyze blame
+	
+	systemd-analyze critical-chain
+
+# Disabling services causing slow boot times
+	systemctl disable [service_name]
+
+		# systemctl disable NetworkManager.service
+		# systemctl disable teamviewerd.service
+
+
