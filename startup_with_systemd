@@ -1,0 +1,74 @@
+
+# Have your service program/executable file, save in /usr/local/bin or wherever
+
+# Create service unit file
+	# check list of already existing service unit files
+		systemctl list-unit-files --type=service
+
+	# create service unit file in /etc/systemd/system/
+		touch /etc/systemd/system/htg.service
+
+	# write into the service unit configuration file
+		[Unit]
+		Description=How to...				# descriptive text
+
+		Wants=network.target				# Our service wants—but doesn’t require—the network
+									# to be up before our service is started.
+
+
+		After=syslog.target network-online.target	# A list of unit names that should be started after
+									# this service has been successfully started,
+									# if they’re not already running.
+		
+		[Service]
+		Type=simple					# systemd will consider this service started as soon
+									# as the process specified by ExecStart has
+									# been forked.
+		
+		ExecStart=/usr/local/bin/htg.sh			# The path to the process that should be started.
+		
+		Restart=on-failure				# When and if the service should be restarted.
+									# We have set it to “on-failure.”
+									# also available are" on-abort, on-success
+		
+		RestartSec=10					# How long to wait before attempting to restart the
+									# service.
+									
+		KillMode=process				# defines how systemd should kill the process should
+									# we ask it to stop the service
+									# "process" causes systemd to use SIGTERM
+									# signal oon main process only. If our service
+									# was a non-trivial one instead of a simple
+									# script, we'd set this to "mixed" to ensure
+									# any spawned processes were also terminated
+
+		[Install]
+		WantedBy=multi-user.target			# We have this set to “multi-user.target”, which means
+									# the service should be started as long as the
+									# system is in a state where multiple users
+									# can log in, whether or not a graphical user
+									# interface is available.
+		
+
+# Starting the service
+	# when you add a new unit file or edit an existing one, you must tell systemd to reload unit file definitions
+		systemctl daemon-reload
+	
+	# enable service to launch it at startup
+		systemctl enable htg
+
+	# start the service
+		systemctl start htg
+
+	# verify, status
+		systemctl status htg
+
+
+# Stopping and disabling the service
+	# stop the service
+		systemctl stop htg.service
+
+	# disable service
+		systemctl disable htg.service
+			
+
