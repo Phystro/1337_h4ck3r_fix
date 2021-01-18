@@ -23,3 +23,21 @@
 	# confirm git username
 		
 		git config --global user.name
+
+
+
+# contributing
+#
+# look where origin of folder is
+	git remote -v
+
+# add upstream
+	git remote add upstream <original_repo_url>
+
+# work on branches
+	git branch fixissue<issue_number>branch
+	git branch fixissue2822branch
+
+	git checkout fixissue2822branch
+
+
