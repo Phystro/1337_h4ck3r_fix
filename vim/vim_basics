@@ -1,0 +1,41 @@
+# Vim
+
+# Number lines
+	:set number
+	:set nonumber
+
+# vertical split
+	ctrl + v
+	:vsplit
+	:vsp
+
+# horizontal split
+	ctrl + s
+	:split
+	:sp
+	:10sp
+
+# move to left window
+	ctrl + w + h
+
+# move to right window
+	ctrl + w + l
+
+# move to down window
+	ctrl + w + j
+
+# move to up window
+	ctrl + w + k
+
+# Copy
+	y
+
+# Paste
+	p
+
+# Swap top/bottom or left/right split
+	ctrl + W + R
+
+# Help
+	:help [something]
+

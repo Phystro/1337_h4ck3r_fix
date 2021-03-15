@@ -26,8 +26,27 @@
 
 
 
-# contributing
-#
+## Contributing
+	
+	# fork the repo
+	
+	# clone the repo
+	
+	# create a branch
+	
+		git checkout -b [new-repo-branch]
+	
+	# make necessary changes and commit those changes
+	
+	# push the changes to github
+	
+	# submit your changes for review
+	
+		- Compare & Pull Request. Open a pull request
+		- submit the pull request
+
+
+
 # look where origin of folder is
 	git remote -v
 
