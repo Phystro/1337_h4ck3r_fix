@@ -46,7 +46,6 @@
 		- submit the pull request
 
 
-
 # look where origin of folder is
 	git remote -v
 
@@ -58,5 +57,19 @@
 	git branch fixissue2822branch
 
 	git checkout fixissue2822branch
+
+# Create new branch
+	git branch <new-branch-name>
+
+# Delete a branch
+	git branch -d <branch-name>
+
+# Commit history
+	git log
+
+	git checkout <commit-hash>
+
+# Merge changes from different branches
+	git merge <branch-name>
 
 
