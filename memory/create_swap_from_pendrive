@@ -1,0 +1,16 @@
+
+sudo umount /dev/sdb
+
+
+mkswap /dev/sdb
+	# or to specify size
+mkswap -p SIZE_IN_BYTES /dev/sdb
+
+# for 2GB
+swapon -p 15000 /dev/sdb
+# for dynamic size
+swapon -p 37500 /dev/sdb
+
+# to observe
+cat /proc/swaps
+
