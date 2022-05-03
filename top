@@ -1,0 +1,13 @@
+# Specify user processes
+	-u <user>
+
+# Highlight running processes
+	z
+
+# Show absolute paths of running processes
+	c
+
+# Terminate a running process using PID
+	k
+
+

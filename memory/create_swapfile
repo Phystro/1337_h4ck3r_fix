@@ -1,0 +1,35 @@
+# Create file
+	sudo dd if=/dev/zero of=swapfile bs=1024 count=1048576
+
+# Set permissions
+	sudo chmod 600 swapfile
+
+# Set up file as swap file
+	sudo mkswap swapfile
+
+# enable swap
+	sudo swapon swapfile
+
+# To make change permanent, append to /etc/fstab
+	swapfile	swap 	swap defaults	0	0
+
+# Verify swap
+	sudo swapon --show
+
+# Adjust Swappiness value
+	cat /proc/sys/vm/swappiness
+	sudo sysctl vm.swappiness=10
+
+# To make parameter persistent, append to file /etc/sysctl.conf
+	vm.swappiness=10
+
+
+# Remove swap file
+	sudo swapoff -v swapfile
+
+# Remove swapfile entry from file /etc/fstab
+
+# Delete actual swapfile
+	sudo rm swapfile
+
+
