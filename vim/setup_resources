@@ -1,0 +1,49 @@
+# Vim Customization Resources
+
+## Links
+
+https://www.pavedroad.io/learning-center/vim-as-an-ide/
+
+
+https://realpython.com/vim-and-python-a-match-made-in-heaven/
+
+https://vim.fandom.com/wiki/Use_Vim_like_an_IDE
+
+https://blog.jez.io/vim-as-an-ide/
+
+## Plugins
+
+**Folding**
+
+Plugin 'tmhedberg/SimpylFold'
+
+**Autocomplete**
+
+Bundle 'Valloric/YouCompleteMe'
+
+**Git Integration**
+
+Plugin 'tpope/vim-fugitive'
+
+**Project Tree Explorer**
+
+Plugin 'scrooloose/nerdtree'
+i = open file using hsplit
+s = open file using vsplit
+
+**Fuzzy Finder**
+
+Plugin 'junegunn/fzf.vim'
+:Files = search files in pwd
+:Lines = search lines from every loaded buffer
+:GFiles = search all files managed by current git repo
+:Buffers = search list of current open buffers
+C^T = open file in new tab
+C^X = open file in hsplit
+C^V = open file in vsplit
+
+**Status Bar**
+
+Plugin 'vim-airline/vim-airline'
+
+
