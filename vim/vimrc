@@ -5,9 +5,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
 " Set stuff
 set encoding=utf-8
-
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -26,7 +26,6 @@ Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Yggdroot/indentLine'
 Plugin 'matze/vim-move'
-
 
 " Configurations
 let g:airline#extensions#tabline#enabled = 1
