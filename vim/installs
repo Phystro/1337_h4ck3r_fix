@@ -1,0 +1,6 @@
+
+sudo pacman -S --needed vim neovim neovim-lsp_signature neovim-nvim-treesitter vim-airline vim-airline-themes vim-ale vim-align vim-ctrlp vim-fugitive vim-gitgutter vim-nerdcommenter vim-nerdtree vim-spell-sw vim-spell-en vim-supertab vim-surround vim-syntastic vim-tabular vim-tagbar vim-ultisnips languageclient-neovim  vim-coc-flutter-git vim-coc-clangd-git vim-coc-git vim-coc-json-git vim-coc-git-git vim-coc-sh-git vim-coc-yaml-git vim-colorschemes python-pynvim
+
+
+hebu
+

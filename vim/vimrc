@@ -5,6 +5,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Set stuff
+set encoding=utf-8
+
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -23,6 +27,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'Yggdroot/indentLine'
 Plugin 'matze/vim-move'
 
+
 " Configurations
 let g:airline#extensions#tabline#enabled = 1
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -30,7 +35,10 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Mappings
 map <F5> :NERDTreeToggle<CR>
-
+map <C-p> :GFiles<CR>
+map <C-f> :Files<CR>
+map <C-b> :Buffers<CR>
+map <C-l> :Lines<CR>
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
