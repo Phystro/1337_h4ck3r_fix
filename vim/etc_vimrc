@@ -1,0 +1,68 @@
+" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing archlinux.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! archlinux.vim
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+
+" do not load defaults if ~/.vimrc is missing
+"let skip_defaults_vim=1
+
+" Personal Configuration - Phystro
+
+" COLORS
+" colorscheme
+syntax enable " enable syntax processing
+
+" SPACES AND TABS
+set tabstop=4	" number of visual spaces per TAB
+set softtabstop=4	" number of spaces in TAB when editing
+set shiftwidth=4	" sets the number of spaces to use for each step of (auto) indent
+set noexpandtab		" ensure tabs are not replaced with spaces
+set showtabline=2	" enables tabline
+
+" UI CONFIG
+set number	" show line numbers
+set showcmd	" show command in bottom bar
+set cursorline " highlight current line
+set wildmenu	" visual autocomplete for command menu
+set lazyredraw " redraw inly when we need to
+set showmatch " highlight matching [{()}]
+set diffopt+=filler	" show line differences with a color
+
+" SEARCHING
+set incsearch	" search as characters are entered
+set hlsearch	" highlight matches
+
+" FOLDING
+set foldenable	" enable folding
+set foldmethod=expr	" indent	" sets the fold method to indentation
+
+" WRAPPING
+set wrap	" enables line wrap
+
+
+
+" C# filetype settings = sets the filetype for all '.cs' files to 'csharp'
+" if has("autocmd")
+" 	au BufNewFile,BufRead *.cs setf csharp
+" endif
+
+" C# omni-completion = sets the omnifunction for C# files to csharpcomplete#Complete to enable C# omni-completion.
+" if has("autocmd")
+" 	au FileType csharp set omnifunc=csharpcomplete#Complete
+" endif
+
+" try to keep lines at limited char length
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+

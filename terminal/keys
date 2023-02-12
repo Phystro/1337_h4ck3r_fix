@@ -1,0 +1,19 @@
+# Linux Terminal Keys Shortcuts/Mappings
+
+## Search Commands
+
+Ctrl+R = Get list of previosu commands
+
+## Backspace/Delete
+
+Ctrl+U = erase everything leading to beginning of line (Backspace)
+Ctrl+K = erase everything leading to end of the line (Delete)
+
+## Navigations
+
+Ctrl+A = go to start of line
+Ctrl+E = go to end of line
+
+Alt+B = move back one letter
+Alt+F = move forward one letter
+
