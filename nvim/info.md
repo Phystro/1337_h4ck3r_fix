@@ -1,5 +1,7 @@
 # NeoVim
 
+[Neovim](https://neovim.io/)
+
 * Astrovim
 * LunarVim
 * Kickstart = https://github.com/nvim-lua/kickstart.nvim
@@ -8,6 +10,8 @@
 * AsianKoala/nvim = https://github.com/AsianKoala/nvim
 * LazyVim 
 * DoomVim
+
+https://www.lazyvim.org/
 
 https://aaronbos.dev/posts/debugging-csharp-neovim-nvim-dap
 
@@ -22,3 +26,4 @@ https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
 
 https://smarttech101.com/tag/nvim-lsp/
 
+https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f#cbd3
