@@ -1,0 +1,24 @@
+
+sudo pacman -S postgresql
+
+sudo systemctl status postgresql.service
+
+sudo su - postgres
+
+$ initdb --locale en_US.UTF-8 -D /var/lib/postgres/data
+
+$ exit
+
+sudo systemctl start postgresql
+
+sudo systemctl status postgresql
+
+sudo systemctl enable postgresql
+
+sudo su - postgres
+
+CREATE USER satire WITH PASSWORD '';
+ALTER USER satire WITH CREATEDB CREATEROLE REPLICATION;
+CREATE DATABASE db;
+GRANT ALL PRIVILEGES ON DATABASE db TO satire;
+
