@@ -1,0 +1,25 @@
+# Fetch sizes of all databases in postgresql
+
+SELECT pg_database.datname,
+pg_size_pretty(pg_database_size(pg_database.datname)) AS size
+FROM pg_database;
+
+# Fetch database size
+SELECT pg_size_pretty(pg_database_size('example'));
+
+# Fetch sizes of all tables in the schema of a database
+select table_schema, table_name, pg_relation_size('"'||table_schema||'"."'||table_name||'"')
+from information_schema.tables
+order by 3
+
+# Backup database
+pg_dump -h hostname  -p 5432 -U usename  -F c -b -v -f prd_export.backup source_database
+
+pg_dump -U satire -d mwezi -F c -f mwezi.bak.sql
+
+# Check data type of column
+\d "Announcements";
+
+select pg_typeof("Id") from "Announcements";
+
+
